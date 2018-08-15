@@ -1,3 +1,24 @@
+- name: "[Redhat] - Gather nodes hostnames"
+  setup:
+    gather_subset: '!all'
+    filter: ansible_*
+    tags: hostname
+
+- name: "[Redhat] Assign inventory name to unconfigured hostnames"
+  command: "hostnamectl set-hostname {{inventory_hostname}}"
+  register: hostname_changed
+  when:
+    - ansible_hostname == 'localhost'or ansible_hostname == 'template'
+  tags: hostname
+
+- name: "[Redhat] Update hostname fact"
+  setup:
+    gather_subset: '!all'
+    filter: ansible_hostname
+  when:
+    - hostname_changed.changed
+  tags: hostname
+
 - name: "[Redhat] - update - Redhat"
   yum: name=* state=latest
   tags: update-redhat
