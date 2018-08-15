@@ -1,0 +1,27 @@
+# ## Configure 'ip' variable to bind kubernetes services on a
+# ## different ip than the default iface
+kube-master1 ansible_host=192.168.0.102  # ip=10.3.0.1
+kube-master2 ansible_host=192.168.0.167  # ip=10.3.0.2
+kube-master3 ansible_host=192.168.0.148  # ip=10.3.0.3
+kube-worker1 ansible_host=192.168.0.187  # ip=10.3.0.4
+
+[etcd]
+kube-master1
+kube-master2
+kube-master3
+
+[master]
+kube-master1
+kube-master2
+kube-master3
+
+[worker]
+kube-worker1
+
+[kube-cluster:children]
+master
+worker
+
+[all:vars]
+ansible_ssh_user=root
+#ansible_ssh_private_key_file= ~/kubernetesMaster.pem

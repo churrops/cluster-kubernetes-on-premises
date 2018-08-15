@@ -1,2 +1,4 @@
-18.213.186.181
-18.214.90.108
+kube-master1
+kube-master2
+kube-master3
+kube-worker1

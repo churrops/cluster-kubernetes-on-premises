@@ -4,6 +4,8 @@ expiry: 24000h
 corp: kubernetes
 cfssl: /etc/cfssl
 
+dns_domain: churrops.com
+
 # ips (do not change)
 ips-etcd: "{{groups['etcd']|join(',')}}"
 ips-master: "{{groups['master']|join(',')}}"
