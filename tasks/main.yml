@@ -9,11 +9,11 @@
 
   tasks:
 
-    - import_tasks: etchosts.yml
-      tags: etchosts
-
     - import_tasks: basic.yml
       tags: basic
+
+    - import_tasks: etchosts.yml
+      tags: etchosts
 
     - import_tasks: preparing-redhat.yml
       tags: redhat
