@@ -1,5 +1,4 @@
 # ## Configure 'ip' variable to bind kubernetes services on a
-# ## different ip than the default iface
 kube-master1 ansible_host=192.168.0.102  # ip=10.3.0.1
 kube-master2 ansible_host=192.168.0.167  # ip=10.3.0.2
 kube-master3 ansible_host=192.168.0.148  # ip=10.3.0.3
